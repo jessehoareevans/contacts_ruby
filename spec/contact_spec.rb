@@ -75,4 +75,25 @@ describe(Contact) do
       expect(test_contact.addresses).to(eq([test_address]))
     end
   end
+
+  describe('#id') do
+    it('return an id number of the contact') do
+      test_contact = Contact.new({:first_name=> "Jesse", :last_name=> "Evans", :job=> "student", :company=>'Epicodus'})
+      test_contact.save()
+      test_contact2 = Contact.new({:first_name=> "Brian", :last_name=> "Fan", :job=> "student", :company=>'Epicodus'})
+      test_contact2.save()
+      expect(test_contact.id()).to(eq(1))
+      expect(test_contact2.id()).to(eq(2))
+    end
+  end
+
+  describe('.find') do
+    it('finds contact based on its id number') do
+      test_contact = Contact.new({:first_name=> "Jesse", :last_name=> "Evans", :job=> "student", :company=>'Epicodus'})
+      test_contact.save()
+      test_contact2 = Contact.new({:first_name=> "Brian", :last_name=> "Fan", :job=> "student", :company=>'Epicodus'})
+      test_contact2.save()
+      expect(Contact.find(test_contact.id())).to(eq(test_contact))
+    end
+  end
 end

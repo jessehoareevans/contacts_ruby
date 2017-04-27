@@ -10,6 +10,11 @@ class Contact
     @phones = []
     @emails = []
     @addresses = []
+    @id = @@contacts.length + 1
+  end
+
+  def id
+    @id
   end
 
   def self.all
@@ -46,5 +51,15 @@ class Contact
 
   def add_address(new_address)
     @addresses.push(new_address)
+  end
+
+  def self.find(id_number)
+    found_contact = nil
+    @@contacts.each() do |contact|
+      if contact.id == id_number
+        found_contact = contact
+      end
+    end
+    found_contact
   end
 end
