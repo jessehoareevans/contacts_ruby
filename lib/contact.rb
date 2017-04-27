@@ -10,7 +10,7 @@ class Contact
     @phones = []
     @emails = []
     @addresses = []
-    @id = @@contacts.length + 1
+    @id = @@contacts.length() + 1
   end
 
   def id
@@ -19,6 +19,10 @@ class Contact
 
   def self.all
     @@contacts
+  end
+
+  def fullname
+    @first_name + ' ' + @last_name
   end
 
   def self.clear

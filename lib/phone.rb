@@ -13,6 +13,10 @@ class Phone
     @@phones
   end
 
+  def full_number
+    '(' + @area_code + ')' + @number
+  end
+  
   def save
     @@phones.push(self)
   end

@@ -1,0 +1,31 @@
+<h1> Contact: <%= @contact.fullname() %></h1>
+
+<p>First Name: <%= @contact.first_name()%></p>
+<p>Last Name: <%= @contact.last_name()%></p>
+<p>Job: <%= @contact.job()%></p>
+<p>Company: <%= @contact.company()%></p>
+
+<a href="/contact/<%= @contact.id()%>/phones/new ">Add a phone number</a>
+<br>
+<% @contact_phones.each() do |phone|%>
+<p>Type of Telephone Number: <%= phone.type()%></p>
+<p>Phone Number:<%= phone.full_number()%></p>
+<% end %>
+
+
+<a href="/contact/<%= @contact.id()%>/emails/new ">Add an Email Address</a>
+
+<% @contact_emails.each() do |email|%>
+<p>Type of Email: <%= email.type()%></p>
+<p>Email Address:<%= email.email()%></p>
+<% end %>
+<a href="/">Home</a>
+
+<a href="/contact/<%= @contact.id()%>/addresses/new ">Add an Address</a>
+
+<% @contact_addresses.each() do |address|%>
+<p>Type of Address: <%= address.type()%></p>
+<p>Street Address: <%= address.street()%></p>
+<p>City of Address: <%= address.city()%></p>
+<p>Zip of Address: <%= address.zip()%></p>
+<% end %>
