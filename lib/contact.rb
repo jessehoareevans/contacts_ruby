@@ -7,6 +7,9 @@ class Contact
     @last_name = attributes.fetch(:last_name)
     @job = attributes.fetch(:job)
     @company = attributes.fetch(:company)
+    @phones = []
+    @emails = []
+    @addresses = []
   end
 
   def self.all
@@ -19,5 +22,29 @@ class Contact
 
   def save
     @@contacts.push(self)
+  end
+
+  def phones
+    @phones
+  end
+
+  def add_phone(new_number)
+    @phones.push(new_number)
+  end
+
+  def emails
+    @emails
+  end
+
+  def add_email(new_email)
+    @emails.push(new_email)
+  end
+
+  def addresses
+    @addresses
+  end
+
+  def add_address(new_address)
+    @addresses.push(new_address)
   end
 end
